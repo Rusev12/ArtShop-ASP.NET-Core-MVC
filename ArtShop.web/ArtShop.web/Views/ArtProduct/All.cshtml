@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AllArtProducts>
+
+@{
+    ViewData["Title"] = "All";
+}
+
+<h2>All</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                Price
+            </td>
+            <td>
+                Description
+            </td>
+            <td>
+                Pic
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>
+                    @product.Name
+                </td>
+                <td>
+                    @product.Price
+                </td>
+                <td>
+                    @product.Description
+                </td>
+                <td>
+                    <img src="~/images/@product.UrlPath" class="img-responsive" style="width:200px"/>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
