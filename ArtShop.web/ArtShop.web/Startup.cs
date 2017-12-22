@@ -1,4 +1,5 @@
-﻿namespace ArtShop.web
+﻿
+namespace ArtShop.Web
 {
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Identity;
@@ -6,14 +7,12 @@
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
-    using ArtShop.Data;
-    using ArtShop.Data.DataModels;
+    using Data;
+    using Data.DataModels;
     using IdentityTesting.Infrastructure.Extensions;
-    using Services.Interfaces;
     using Services.Implementations;
+    using Services.Interfaces;
     using AutoMapper;
-    using ReflectionIT.Mvc.Paging;
-    using Microsoft.AspNetCore.Mvc.Infrastructure;
 
     public class Startup
     {
@@ -31,31 +30,30 @@
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IArtProductService, ArtProductService>();
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<ICustomerService, CustomerService>();
+
+            services.AddAuthentication();
 
             services.AddAutoMapper();
-
             services.AddIdentity<User, IdentityRole>(options => {
                 options.Password.RequireDigit = false;
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
 
-                                })
-                .AddEntityFrameworkStores<ArtShopDbContext>()
-                .AddDefaultTokenProviders();
+            })
+            .AddEntityFrameworkStores<ArtShopDbContext>()
+            .AddDefaultTokenProviders();
 
-            // Add application services.
-          
 
             services.AddMvc();
-            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
-        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseDatabaseMigration();
+            //app.UseDatabaseMigration();
 
             if (env.IsDevelopment())
             {

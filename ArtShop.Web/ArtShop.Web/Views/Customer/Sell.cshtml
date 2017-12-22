@@ -1,0 +1,51 @@
+﻿@model CustomerServiceModel
+@{
+    ViewData["Title"] = "Sell";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Sell" asp-controller="Customer" method="post">
+            <h4>Information about delivery!</h4>
+            <hr />
+   
+            <div class="form-group">
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName" class="form-control"  />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostCode"></label>
+                <input asp-for="PostCode" class="form-control" />
+                <span asp-validation-for="PostCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StreetAddress"></label>
+                <input asp-for="StreetAddress" class="form-control" />
+                <span asp-validation-for="StreetAddress" class="text-danger"></span>
+            </div>
+          
+            <button type="submit" class="btn btn-success btn-lg">Buy</button>
+         
+        </form>
+    </div>
+    <img src="~/images/0457d5a5dcc63e4677988458bec23c20.png" class="img-responsive float" alt="image" >
+</div>
+
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+
+

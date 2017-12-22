@@ -1,4 +1,4 @@
-﻿namespace ArtShop.web.Controllers
+﻿namespace ArtShop.Web.Controllers
 {
     using System;
     using System.Security.Claims;
@@ -8,8 +8,10 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
-    using ArtShop.Data.DataModels;
-    using ArtShop.web.Models.AccountViewModels;
+    using ArtShop.Web.Models.AccountViewModels;
+    using Data.DataModels;
+
+
 
     [Authorize]
     [Route("[controller]/[action]")]
@@ -219,7 +221,7 @@
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                 
+                  
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation("User created a new account with password.");
                     return RedirectToLocal(returnUrl);
@@ -361,7 +363,7 @@
                 // visit https://go.microsoft.com/fwlink/?LinkID=532713
                 var code = await _userManager.GeneratePasswordResetTokenAsync(user);
                
-                 
+             
                 return RedirectToAction(nameof(ForgotPasswordConfirmation));
             }
 

@@ -1,6 +1,6 @@
 using System;
 
-namespace ArtShop.web.Models
+namespace ArtShop.Web.Models
 {
     public class ErrorViewModel
     {

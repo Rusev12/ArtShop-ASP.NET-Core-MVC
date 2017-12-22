@@ -1,4 +1,4 @@
-﻿namespace ArtShop.web.Controllers
+﻿namespace ArtShop.Web.Controllers
 {
     using System;
     using System.Linq;
@@ -10,8 +10,8 @@
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
-    using ArtShop.web.Models.ManageViewModels;
-    using ArtShop.Data.DataModels;
+    using ArtShop.Web.Models.ManageViewModels;
+    using Data.DataModels;
 
     [Authorize]
     [Route("[controller]/[action]")]
@@ -115,8 +115,9 @@
             }
 
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-           
+
             var email = user.Email;
+ 
 
             StatusMessage = "Verification email sent. Please check your email.";
             return RedirectToAction(nameof(Index));
@@ -488,7 +489,7 @@
         {
             return string.Format(
                 AuthenicatorUriFormat,
-                _urlEncoder.Encode("ArtShop.web"),
+                _urlEncoder.Encode("ArtShop.Web"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

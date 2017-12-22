@@ -46,7 +46,7 @@
                             {
                                 Email = adminEmail,
                                 UserName = adminEmail,
-                          
+
                             };
                             var result = await userManager.CreateAsync(adminUserExists, "admin12");
 
@@ -60,3 +60,4 @@
         }
     }
 }
+

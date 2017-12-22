@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ArtShop.web.Models.ManageViewModels
+namespace ArtShop.Web.Models.ManageViewModels
 {
     public class SetPasswordViewModel
     {

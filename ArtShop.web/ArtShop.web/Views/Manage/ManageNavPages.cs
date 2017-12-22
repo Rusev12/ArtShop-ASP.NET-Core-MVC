@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-namespace ArtShop.web.Views.Manage
+namespace ArtShop.Web.Views.Manage
 {
     public static class ManageNavPages
     {

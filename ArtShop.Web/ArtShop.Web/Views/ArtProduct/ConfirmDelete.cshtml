@@ -1,0 +1,16 @@
+﻿@model AllArtProducts
+@{
+    ViewData["Title"] = "ConfirmDelete";
+}
+
+<h2>Are you sure to delete this item? </h2>
+<img src="~/images/@Model.UrlPath" class="img-responsive img" style="width:100px"/>
+<p>
+    @Model.Name - @Model.Price$
+</p>
+<small>@Model.Description</small>
+<div>
+    <a asp-controller="ArtProduct" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-sm">Delete</a>
+    <a asp-controller="ArtProduct" asp-action="All" class="btn btn-success btn-sm">Back</a>
+</div>
+

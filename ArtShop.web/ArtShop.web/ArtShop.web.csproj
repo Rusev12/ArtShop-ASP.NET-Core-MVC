@@ -2,16 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <UserSecretsId>aspnet-ArtShop.web-F843473A-8856-44EF-8AF9-DD7D8969D1A4</UserSecretsId>
+    <UserSecretsId>aspnet-ArtShop.Web-2A03F237-89B6-4B80-9C19-CF20A2CCDF7B</UserSecretsId>
   </PropertyGroup>
 
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" PrivateAssets="All" />
-    <PackageReference Include="PagedList.Core.Mvc" Version="1.0.1" />
-    <PackageReference Include="X.PagedList.Mvc.Core" Version="7.2.0" />
   </ItemGroup>
 
   <ItemGroup>
