@@ -1,0 +1,14 @@
+﻿@model CustomerServiceModel
+@{
+    ViewData["Title"] = "InformationForSell";
+}
+<h1>Hello @Model.FirstName @Model.LastName</h1>
+
+<h3>Product will be delivered tomorrow ! </h3>
+<h3>Your adrress is</h3>
+<h3>City : @Model.City</h3>
+<h3>Adress : @Model.StreetAddress</h3>
+<h3>Post code : @Model.PostCode</h3>
+
+<a asp-action="All" asp-controller="ArtProduct" class="btn btn-primary btn-lg">Back</a>
+

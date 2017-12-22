@@ -1,0 +1,68 @@
+﻿@model IEnumerable<AllArtProducts>
+@{
+        ViewData["Title"] = "All";
+ }
+
+@if (!Model.Any())
+{
+    <h2>No more products</h2>
+}
+
+<div class="container">
+    <div class="row">
+
+        @foreach (var product in Model)
+        {
+
+            <div class="col-md-4">
+                <article>
+                    @if (!product.IsAvailable)
+                    {
+                        <header>
+                            <h4>
+
+                                Product is not available !
+                            </h4>
+                        </header>
+                    }
+                  
+                    else
+                    {
+                        <header>
+                            <h4>
+
+                                @Html.ActionLink(product.Name, "Details", "ArtProduct", new { @id = product.Id }, null)
+                            </h4>
+                        </header>
+
+                    }
+
+                    @if (product.UrlPath != null)
+                    {
+                        <img src="~/images/@product.UrlPath" alt="Article image" width="250" height="250" />
+                    }
+                    <p>
+                        @product.Price $
+                    </p>
+
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <footer class="pull-left">
+                            <a asp-action="Details" asp-controller="ArtProduct">Remove or update</a>
+                        </footer>
+                    }
+                  
+
+                </article>
+
+            </div>
+        }
+    </div>
+</div>
+   
+<p class="text-center">
+    <a href="/ArtProduct/All?page=@(ViewBag.CurrentPage -1 )" class="btn btn-primary @(ViewBag.CurrentPage == 1 ? "disabled" : string.Empty )">Previous <<</a>
+    <a href="/ArtProduct/All?page=@(ViewBag.CurrentPage + 1)" class="btn btn-primary @(!Model.Any() || Model.Count() < 6 ? "disabled" : string.Empty )">Next >></a>
+</p>
+
+

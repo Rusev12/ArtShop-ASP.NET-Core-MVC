@@ -1,0 +1,47 @@
+﻿@model IEnumerable<UserProduct>
+@{
+    ViewData["Title"] = "CustomerProducts";
+}
+
+
+
+@if (!Model.Any())
+{
+    <h2>No products</h2>
+}
+
+<div class="container">
+    <div class="row">
+
+        @foreach (var product in Model)
+        {
+
+            <div class="col-md-4">
+                <article>
+                  
+                    @if (product.UrlPath != null)
+                    {
+                        <img src="~/images/@product.UrlPath" alt="Article image" width="300" height="250" class="img-responsive" />
+                    }
+                    <p>
+                        @product.Price $
+                    </p>
+                    <footer class="pull-left">
+
+                            <small class="author">
+                              
+                                --description @product.Description
+                            </small>
+                        </footer>
+                   
+                   
+
+
+                </article>
+
+            </div>
+
+        }
+    </div>
+</div>
+
